@@ -85,39 +85,19 @@ class _HomePageState extends State<HomePage> {
                     height: 80,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: 5, // Placeholder count
+                      itemCount: categories.length,
                       itemBuilder: (context, index) => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
                         child: SizedBox(
                           width: 80,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 40,
-                                  width: 40,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                SizedBox(height: 4),
-                                Container(
-                                  height: 12,
-                                  width: 60,
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                          ),
+                          child: Chip(label: Container()),
                         ),
                       ),
                     ),
                   ),
                 )
               : SizedBox(
-                  height: 90,
+                  height: 50,
                   width: double.infinity,
                   child: ListView.builder(
                     shrinkWrap: true,
@@ -129,50 +109,12 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
                         child: SizedBox(
                           width: 80,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CachedNetworkImage(
-                                  imageUrl: category.image ?? '',
-                                  imageBuilder: (context, imageProvider) =>
-                                      Container(
-                                        height: 40,
-                                        width: 40,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                  placeholder: (context, url) =>
-                                      CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) =>
-                                      Icon(Icons.category, size: 40),
-                                ),
-                                SizedBox(height: 4),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 4.0,
-                                  ),
-                                  child: Text(
-                                    category.name ?? '',
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(fontSize: 12),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          child: Chip(label: Text(category.name ?? '')),
                         ),
                       );
                     },
                   ),
                 ),
-          SizedBox(height: 10),
           Expanded(
             child: isLoading
                 ? Shimmer.fromColors(
