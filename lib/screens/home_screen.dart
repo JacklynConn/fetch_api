@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isLoading = true;
   bool isCategoryLoading = true;
   final List<ProductModel> products = [];
-  final List<Category> categories= [];
+    final List<Category> categories = [];
 
   Future<void> _fetchProducts() async {
     final url = Uri.parse('https://api.escuelajs.co/api/v1/products');
