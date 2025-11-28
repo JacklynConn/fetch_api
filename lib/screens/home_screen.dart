@@ -6,18 +6,18 @@ import 'package:shimmer/shimmer.dart';
 import '../models/categories_model.dart';
 import '../models/product_model.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   bool isLoading = true;
   bool isCategoryLoading = true;
   final List<ProductModel> products = [];
-  final List<Category> categories = [];
+  final List<Category> categories= [];
 
   Future<void> _fetchProducts() async {
     final url = Uri.parse('https://api.escuelajs.co/api/v1/products');
@@ -108,7 +108,6 @@ class _HomePageState extends State<HomePage> {
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
                         child: SizedBox(
-                          width: 80,
                           child: Chip(label: Text(category.name ?? '')),
                         ),
                       );
