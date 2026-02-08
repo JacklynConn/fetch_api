@@ -1,4 +1,4 @@
-import 'package:fetch_api/screens/home_screen.dart';
+import 'package:fetch_api/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomeScreen(),
+      home: const ProfileScreen(),
     );
   }
 }
